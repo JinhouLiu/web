@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.supervisor.mapper.ResUserMapper">
+	<resultMap id="BaseResultMap" type="com.web.supervisor.entity.ResUser">
+		<id column="userId" property="userid" jdbcType="INTEGER" />
+		<id column="resId" property="resid" jdbcType="INTEGER" />
+	</resultMap>
+
+
+	<select id="listResUser" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select * from res_user
+
+	</select>
+
+</mapper>

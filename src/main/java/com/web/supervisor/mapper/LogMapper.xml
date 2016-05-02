@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.supervisor.mapper.LogMapper" >
+  <resultMap id="BaseResultMap" type="com.web.supervisor.entity.Log" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="accountName" property="accountname" jdbcType="VARCHAR" />
+    <result column="module" property="module" jdbcType="VARCHAR" />
+    <result column="methods" property="methods" jdbcType="VARCHAR" />
+    <result column="actionTime" property="actiontime" jdbcType="VARCHAR" />
+    <result column="userIP" property="userip" jdbcType="VARCHAR" />
+    <result column="operTime" property="opertime" jdbcType="TIMESTAMP" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, accountName, module, methods, actionTime, userIP, operTime, description
+  </sql>
+  
+   <select id="listLog" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    
+    from log
+   
+  </select>
+  <!-- <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.web.supervisor.entity.Log" >
+    insert into log (id, accountName, module, 
+      methods, actionTime, userIP, 
+      operTime, description)
+    values (#{id,jdbcType=INTEGER}, #{accountname,jdbcType=VARCHAR}, #{module,jdbcType=VARCHAR}, 
+      #{methods,jdbcType=VARCHAR}, #{actiontime,jdbcType=VARCHAR}, #{userip,jdbcType=VARCHAR}, 
+      #{opertime,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.web.supervisor.entity.Log" >
+    insert into log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="accountname != null" >
+        accountName,
+      </if>
+      <if test="module != null" >
+        module,
+      </if>
+      <if test="methods != null" >
+        methods,
+      </if>
+      <if test="actiontime != null" >
+        actionTime,
+      </if>
+      <if test="userip != null" >
+        userIP,
+      </if>
+      <if test="opertime != null" >
+        operTime,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="accountname != null" >
+        #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null" >
+        #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="methods != null" >
+        #{methods,jdbcType=VARCHAR},
+      </if>
+      <if test="actiontime != null" >
+        #{actiontime,jdbcType=VARCHAR},
+      </if>
+      <if test="userip != null" >
+        #{userip,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null" >
+        #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.web.supervisor.entity.Log" >
+    update log
+    <set >
+      <if test="accountname != null" >
+        accountName = #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null" >
+        module = #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="methods != null" >
+        methods = #{methods,jdbcType=VARCHAR},
+      </if>
+      <if test="actiontime != null" >
+        actionTime = #{actiontime,jdbcType=VARCHAR},
+      </if>
+      <if test="userip != null" >
+        userIP = #{userip,jdbcType=VARCHAR},
+      </if>
+      <if test="opertime != null" >
+        operTime = #{opertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.web.supervisor.entity.Log" >
+    update log
+    set accountName = #{accountname,jdbcType=VARCHAR},
+      module = #{module,jdbcType=VARCHAR},
+      methods = #{methods,jdbcType=VARCHAR},
+      actionTime = #{actiontime,jdbcType=VARCHAR},
+      userIP = #{userip,jdbcType=VARCHAR},
+      operTime = #{opertime,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update> -->
+</mapper>

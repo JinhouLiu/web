@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.supervisor.mapper.UserRoleMapper">
+	<resultMap id="BaseResultMap" type="com.web.supervisor.entity.UserRole">
+		<id column="userId" property="userid" jdbcType="INTEGER" />
+		<id column="roleId" property="roleid" jdbcType="INTEGER" />
+	</resultMap>
+
+	<select id="listUserRole" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select * from user_role
+
+	</select>
+</mapper>
