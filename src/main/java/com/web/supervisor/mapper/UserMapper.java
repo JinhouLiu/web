@@ -10,7 +10,7 @@ import com.web.supervisor.entity.User;
 public interface UserMapper extends BaseMapper{
 	
 
-	List<User>  findUser();  
+	List<User>  listUser();  
 	
    
 }
