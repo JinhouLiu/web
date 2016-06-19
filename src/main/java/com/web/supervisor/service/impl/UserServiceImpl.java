@@ -22,7 +22,7 @@ public class UserServiceImpl  implements UserService {
 	  
 		
  
-	  return    userMapper.findUser();
+	  return    userMapper.listUser();
 		  
 		
 	}

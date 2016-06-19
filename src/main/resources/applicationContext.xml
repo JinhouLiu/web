@@ -29,11 +29,6 @@
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.user}" />
 		<property name="password" value="${jdbc.password}" />
-
-		<!-- <property name="DriverClassName" value="com.mysql.jdbc.Driver" /> 
-			JDBC连接串 <property name="url" value="jdbc:mysql://127.0.0.1:3306/website?zeroDateTimeBehavior=convertToNull" 
-			/> 数据库用户名称 <property name="username" value="root" /> 数据库密码 <property name="password" 
-			value="root" /> -->
 		<property name="filters" value="stat" />
 		<!-- 初始化连接大小 -->
 		<property name="initialSize" value="1" />
@@ -46,13 +41,11 @@
 		<property name="poolPreparedStatements" value="true" />
 		<property name="maxPoolPreparedStatementPerConnectionSize"
 			value="33" />
-
 		<!-- 用来检测有效sql -->
 		<property name="validationQuery" value="SELECT 'x'" />
 		<property name="testWhileIdle" value="true" />
 		<property name="testOnBorrow" value="false" />
 		<property name="testOnReturn" value="false" />
-
 		<!-- <property name="validationQuery" value="${validationQuery}" /> <property 
 			name="testOnBorrow" value="false" /> <property name="testOnReturn" value="false" 
 			/> <property name="testWhileIdle" value="true" /> -->
@@ -97,22 +90,16 @@
 				</bean>
 			</array>
 		</property>
-	</bean>
-		
+	</bean>	
 	<!--  mybatis配置文件和 DAO的位置，扫描com.web.supervisor.controller.*目录下，所有继承BaseMapper的Mapper接口 -->   
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.web.supervisor.mapper"/> 
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>       
     </bean>
-
- 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"
 		scope="prototype">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
-
-	<aop:aspectj-autoproxy />
-
 	<!-- 配置事务管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -120,7 +107,6 @@
 	</bean>
 	<!-- JS,CSS资源不被过滤 -->
 	<mvc:resources location="/resources/" mapping="/resources/**" />
-
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="add*" propagation="REQUIRED" read-only="false"
@@ -133,8 +119,7 @@
 			<tx:method name="get*" propagation="SUPPORTS" />
 		</tx:attributes>
 	</tx:advice>
-
-	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<!-- <aop:aspectj-autoproxy proxy-target-class="true" /> -->
 	<aop:config>
 		<aop:pointcut id="pointcut"
 			expression="execution(public * com.web.supervisor.service.*.impl.*Impl.*(..))" />
